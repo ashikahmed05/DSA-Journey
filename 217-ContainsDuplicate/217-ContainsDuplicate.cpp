@@ -1,7 +1,9 @@
-// Last updated: 10/28/2025, 7:17:39 PM
+// Last updated: 10/28/2025, 7:21:18 PM
 class Solution {
 public:
     bool isAnagram(string s, string t) {
+
+        // Here I am using unordered_map for fast lookups and time complexity O(n) and space complexity O(k).
 
         unordered_map<char, int> mp;
         string x = s.size() >= t.size() ? t : s;
