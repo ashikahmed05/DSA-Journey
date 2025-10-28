@@ -1,4 +1,4 @@
-// Last updated: 10/28/2025, 6:21:51 PM
+// Last updated: 10/28/2025, 6:25:25 PM
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
@@ -7,9 +7,7 @@ public:
 
         unordered_set<int> setnum;
 
-        for (int i : nums){
-            setnum.insert(i);
-        }
+       setnum.insert(nums.begin(), nums.end());
         if (nums.size() != setnum.size()){
             return true;
         }
