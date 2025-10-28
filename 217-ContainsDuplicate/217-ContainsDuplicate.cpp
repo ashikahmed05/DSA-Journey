@@ -1,18 +1,24 @@
-// Last updated: 10/28/2025, 6:35:22 PM
+// Last updated: 10/28/2025, 7:17:39 PM
 class Solution {
 public:
-    bool containsDuplicate(vector<int>& nums) {
+    bool isAnagram(string s, string t) {
 
-        // Here i used the set tool for distinguish the unique element if duplicated. Time & Space Complexity O(n)
+        unordered_map<char, int> mp;
+        string x = s.size() >= t.size() ? t : s;
+        string y = s.size() >= t.size() ? s : t;
 
-        unordered_set<int> setnum;
+        for (int i = 0 ; i < x.size(); i++){
+            mp[x[i]]++;
 
-        setnum.insert(nums.begin(), nums.end());
-
-        if (nums.size() != setnum.size()){
-            return true;
         }
-        return false;
+        for (char z : y){
+            if (mp[z] != 0){
+                mp[z]--;
+            } else {
+                return false;
+            }
+        }
+        return true;
         
     }
 };
