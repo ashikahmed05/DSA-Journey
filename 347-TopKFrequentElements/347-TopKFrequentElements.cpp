@@ -1,6 +1,8 @@
-// Last updated: 10/29/2025, 7:58:40 PM
+// Last updated: 10/29/2025, 9:00:51 PM
 class Solution {
 public:
+
+// Here i used unordered_set and map to get the maximum no occurance with time complexity O(n)
     int maxFinder (unordered_set<int>& setnum, unordered_map<int, int>& mp){
         int max = 0;
         int maxNum;
