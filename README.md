@@ -20,7 +20,7 @@ My current mission is to master the foundational patterns of problem-solving. To
 
   * **Language:** C++
   * **Core Toolkit:** The C++ Standard Template Library (STL), including `vector`, `map`, `set`, `stack`, `queue`, `priority_queue`, and the `<algorithm>` library.
-  * **Automation:** Using [Leethub](https://github.com/QasimWani/LeetHub) to automatically push my "Accepted" LeetCode solutions to this repository.
+  * **Automation:** Using [LeetCode Tracker](https://github.com/JeffreyGbeho/leetcode-tracker) to automatically push my "Accepted" LeetCode solutions to this repository.
 
 ## Repository Structure
 
