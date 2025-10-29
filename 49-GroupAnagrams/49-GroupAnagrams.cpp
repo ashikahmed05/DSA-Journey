@@ -1,7 +1,9 @@
-// Last updated: 10/29/2025, 4:23:47 PM
+// Last updated: 10/29/2025, 4:25:44 PM
 class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
+
+        // I have used hashing technique to create a unique no that is only similar for the anagrams so thats why i am able to identify the anagrams and its time complexity is O(nk)
 
         unordered_map<long long, vector<string>> mp;
         vector<vector<string>> result;
