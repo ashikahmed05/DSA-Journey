@@ -1,7 +1,9 @@
-// Last updated: 10/31/2025, 8:12:09 PM
+// Last updated: 10/31/2025, 8:20:58 PM
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
+
+        // Here i checked the pre existed no to find the inial consecutive no and so on with time complexity O(n).
  
         unordered_set<int> set;
         int Max = 0;
