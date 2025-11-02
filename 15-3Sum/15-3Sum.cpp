@@ -1,7 +1,8 @@
-// Last updated: 11/2/2025, 8:01:11 PM
+// Last updated: 11/2/2025, 8:02:06 PM
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
+        // here i used two pointers with a fixed value from begining with TC and SC O(n2) & O(1).
 
         
         sort(nums.begin(), nums.end());
