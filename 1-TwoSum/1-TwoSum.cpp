@@ -1,17 +1,26 @@
-// Last updated: 10/28/2025, 6:17:56 PM
+// Last updated: 11/5/2025, 3:26:05 PM
 class Solution {
 public:
-    bool containsDuplicate(vector<int>& nums) {
-
-        // Here i used the set tool for distinguish the unique element if duplicated.
-        set<int> setnum;
-        for (int i : nums){
-            setnum.insert(i);
-        }
-        if (nums.size() != setnum.size()){
-            return true;
-        }
-        return false;
+    vector<int> twoSum(vector<int>& nums, int target) {
         
-    }
+        // This is my first LeetCode Problem solution, with time complexity O(n) and Space Complexity O(n).
+        // Here i used unordered_map for fast look up its key and value pair i have already visited.
+        
+
+
+            unordered_map<int, int> mp;
+
+            for (int i = 0; i < nums.size(); i++){
+                if (mp.count(target - nums[i])){
+                    return {mp[target - nums[i]], i};
+
+                }
+                mp.insert({nums[i], i});
+            }
+            return {};
+            
+        }
+        
+        
+
 };
