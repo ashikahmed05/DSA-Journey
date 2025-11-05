@@ -1,7 +1,9 @@
-// Last updated: 11/5/2025, 11:50:47 AM
+// Last updated: 11/5/2025, 12:07:52 PM
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
+
+        // here i did sliding window with TC O(n*m) & SC O(1)
         vector<int> fs1(26, 0), fs2(26, 0);
         if (s1.size() > s2.size()) return false;
         int l = 0;
