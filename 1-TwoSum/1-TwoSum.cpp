@@ -1,26 +1,32 @@
-// Last updated: 11/5/2025, 3:26:05 PM
+// Last updated: 11/5/2025, 4:24:02 PM
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        
-        // This is my first LeetCode Problem solution, with time complexity O(n) and Space Complexity O(n).
-        // Here i used unordered_map for fast look up its key and value pair i have already visited.
-        
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
 
+        // I have used hashing technique to create a unique no that is only similar for the anagrams so thats why i am able to identify the anagrams and its time complexity is O(nk)
 
-            unordered_map<int, int> mp;
+        unordered_map<long long, vector<string>> mp;
+        vector<vector<string>> result;
 
-            for (int i = 0; i < nums.size(); i++){
-                if (mp.count(target - nums[i])){
-                    return {mp[target - nums[i]], i};
-
-                }
-                mp.insert({nums[i], i});
+        for (string& s : strs){
+            long long hash = 0;
+            long long base = 31;
+            long long divider = 1e9 + 9;
+            vector<int> freq(26, 0);
+            for (char& c : s){
+                freq[c - 'a']++;
             }
-            return {};
-            
-        }
-        
-        
+            for (int& f : freq){
+                hash = (hash*base + f) % divider;
+            }
+            mp[hash].push_back(s);
 
+        }
+
+        for (auto& pair : mp){
+            result.push_back(pair.second);
+        }
+        return result;
+        
+    }
 };
