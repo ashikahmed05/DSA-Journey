@@ -1,7 +1,8 @@
-// Last updated: 11/7/2025, 4:32:42 PM
+// Last updated: 11/7/2025, 4:37:48 PM
 class Solution {
+    // Here i am using stack to operate every 3 window that is recent to its operator thats why i get it with in O(n) TC.
 public:
-    int Oper(string x, string y, string ops){
+    string Oper(string x, string y, string ops){
         int a = stoi(x);
         int b = stoi(y);
         int result;
@@ -14,14 +15,13 @@ public:
         } else if (ops== "-"){
             result = a-b;
         }
-        return result;
+        return to_string(result);
     }
     string in, nex, op;
 
     int evalRPN(vector<string>& tokens) {
         unordered_set<string> ops = {"+", "-", "*", "/"};
         stack<string> stack;
-        int r = 0;
         for (int r = 0; r < tokens.size(); r++){
 
             stack.push(tokens[r]);
@@ -33,7 +33,7 @@ public:
                 stack.pop();
                 in = stack.top();
                 stack.pop();
-                stack.push(to_string(Oper(in, nex, op)));                                
+                stack.push(Oper(in, nex, op));                                
             }
         }
         return stoi(stack.top());
