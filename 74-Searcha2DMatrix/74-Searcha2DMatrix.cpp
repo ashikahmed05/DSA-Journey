@@ -1,6 +1,7 @@
-// Last updated: 11/9/2025, 4:38:43 PM
+// Last updated: 11/9/2025, 7:35:45 PM
 class Solution {
 public:
+// here using double binary search method with TC O(logn) and SC is O(1)
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int m = matrix[0].size() - 1;
         int row = matrix.size() - 1;
