@@ -1,4 +1,4 @@
-// Last updated: 11/13/2025, 11:46:13 PM
+// Last updated: 11/14/2025, 4:02:32 PM
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -10,6 +10,7 @@
 
  
 class Solution {
+    //Here i am using Floyds loop method where i am using slow and fast pointers with TC O(n) && O(1)
 public:
     bool hasCycle(ListNode *head) {
         
