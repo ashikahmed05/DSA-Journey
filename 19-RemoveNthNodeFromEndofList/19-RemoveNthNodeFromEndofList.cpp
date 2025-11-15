@@ -1,4 +1,4 @@
-// Last updated: 11/15/2025, 10:43:41 AM
+// Last updated: 11/15/2025, 12:08:26 PM
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -15,40 +15,35 @@ public:
         ListNode* curr = head;
         ListNode* prev = nullptr;
         while(curr){
-            ListNode* next = curr ->next;
+            ListNode* next = curr->next;
             curr->next = prev;
             prev = curr;
             curr = next;
         }
         return prev;
-
     }
 
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode* prime = head;
-        ListNode* prev = reverse(head);
         if (!head) return head;
 
+        ListNode* rev = reverse(head);
 
-        if (n==1){
+        if (n == 1) {
             ListNode dummy(0);
-            ListNode* node = &dummy;
-            node->next = prev->next;
+            dummy.next = rev->next;
             return reverse(dummy.next);
         }
 
         int index = 1;
-        ListNode* delcurr = prev;
+        ListNode* curr = rev;
 
-        while(index < n - 1){
-            delcurr = delcurr->next;
+        while (index < n - 1 && curr->next) {
+            curr = curr->next;
             index++;
         }
-        
-        delcurr->next = delcurr->next ? delcurr->next->next : nullptr;
 
+        curr->next = curr->next ? curr->next->next : nullptr;
 
-        return reverse(prev);
-        
+        return reverse(rev);
     }
 };
