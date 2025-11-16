@@ -1,4 +1,4 @@
-// Last updated: 11/16/2025, 3:10:30 PM
+// Last updated: 11/16/2025, 3:11:48 PM
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+// Here i am using two pointer method with TC O(n)
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         if(!head) return nullptr;
         ListNode node(0);
