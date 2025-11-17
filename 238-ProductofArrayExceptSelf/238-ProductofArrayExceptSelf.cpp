@@ -1,10 +1,10 @@
-// Last updated: 10/30/2025, 7:22:48 PM
+// Last updated: 11/17/2025, 11:32:01 PM
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
 
         // Here i used to multiply the pre and post multiplication eliments to conclude the answer and time complexity O(n)
-        
+                
         int n = nums.size();
         vector<int> answer(n);
         vector<int> prefix(n, 1);
