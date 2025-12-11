@@ -1,4 +1,4 @@
-// Last updated: 12/11/2025, 11:32:11 AM
+// Last updated: 12/11/2025, 11:41:08 AM
 1/*
 2// Definition for a Node.
 3class Node {
@@ -14,7 +14,7 @@
 13    }
 14};
 15*/
-16
+16// here the time and space complexity is O(n). And here i used hashmap with two passes loop.
 17class Solution {
 18public:
 19    Node* copyRandomList(Node* head) {
