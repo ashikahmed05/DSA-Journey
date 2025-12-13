@@ -1,4 +1,4 @@
-// Last updated: 12/13/2025, 11:07:40 AM
+// Last updated: 12/13/2025, 11:18:22 AM
 1/**
 2 * Definition for a binary tree node.
 3 * struct TreeNode {
@@ -11,12 +11,13 @@
 10 * };
 11 */
 12class Solution {
-13public:
-14    TreeNode* invertTree(TreeNode* root) {
-15        if(!root) return nullptr;
-16        swap(root->left, root->right);
-17        invertTree(root->left);
-18        invertTree(root->right);
-19        return root;
-20    }
-21};
+13    // Here i am using recursion with swap and its TC O(n), SC O(h).
+14public:
+15    TreeNode* invertTree(TreeNode* root) {
+16        if(!root) return nullptr;
+17        swap(root->left, root->right);
+18        invertTree(root->left);
+19        invertTree(root->right);
+20        return root;
+21    }
+22};
