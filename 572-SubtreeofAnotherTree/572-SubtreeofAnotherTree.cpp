@@ -1,4 +1,4 @@
-// Last updated: 12/15/2025, 12:04:14 PM
+// Last updated: 12/15/2025, 12:05:54 PM
 1/**
 2 * Definition for a binary tree node.
 3 * struct TreeNode {
@@ -17,7 +17,7 @@
 16            s += '#';
 17            return;
 18        };
-19        s += ','+to_string(root->val) + ',';
+19        s += "'"+to_string(root->val) + ",";
 20        stringify(root->left, s);
 21        stringify(root->right, s);
 22    }
