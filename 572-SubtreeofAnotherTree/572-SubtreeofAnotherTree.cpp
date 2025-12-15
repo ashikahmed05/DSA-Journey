@@ -1,4 +1,4 @@
-// Last updated: 12/15/2025, 11:41:30 AM
+// Last updated: 12/15/2025, 12:04:14 PM
 1/**
 2 * Definition for a binary tree node.
 3 * struct TreeNode {
@@ -12,21 +12,20 @@
 11 */
 12class Solution {
 13public:
-14    string s = "empty";
-15    string stringify(TreeNode* root){
-16        if(!root){
-17            return "#";
-18        }
-19        string value;
-20        if(s != "true")value = stringify(root->left) + "L" + stringify(root->right) + "R" + to_string(root->val);
-21        if ( s != "empty") s = s == value ? "true" : s;
-22        
-23        return s == "true" ? s : value;
-24    }
-25    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-26        s = stringify(subRoot);
-27        stringify(root);
-28        return s=="true";
-29        
-30    }
-31};
+14    void stringify(TreeNode* root, string& s){
+15        if(!root){
+16            s += '#';
+17            return;
+18        };
+19        s += ','+to_string(root->val) + ',';
+20        stringify(root->left, s);
+21        stringify(root->right, s);
+22    }
+23    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+24        string s1, s2;
+25        stringify(subRoot, s1);
+26        stringify(root, s2);
+27        return s2.find(s1) != string::npos;
+28        
+29    }
+30};
