@@ -1,4 +1,4 @@
-// Last updated: 12/15/2025, 11:09:37 AM
+// Last updated: 12/15/2025, 11:12:08 AM
 1/**
 2 * Definition for a binary tree node.
 3 * struct TreeNode {
@@ -26,14 +26,9 @@
 25    }
 26    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
 27        if(!root) return false;
-28        if(dfs(root,subRoot)) return true;
-29
-30        bool left = dfs(root->left, subRoot);
-31        bool right = dfs(root->right, subRoot);
-32        if (!left && !right){
-33            return isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
-34        } 
-35        return true;
-36        
-37    }
-38};
+28        if(dfs(root,subRoot)) return true;     
+29        return isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
+30        
+31        
+32    }
+33};
