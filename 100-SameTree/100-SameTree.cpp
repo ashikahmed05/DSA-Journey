@@ -1,4 +1,4 @@
-// Last updated: 12/15/2025, 9:57:06 AM
+// Last updated: 12/15/2025, 10:05:32 AM
 1/**
 2 * Definition for a binary tree node.
 3 * struct TreeNode {
@@ -11,19 +11,20 @@
 10 * };
 11 */
 12class Solution {
-13public:
-14    bool checker(TreeNode* p, TreeNode* q){
-15        if(!p || !q){
-16            if(!p && !q){
-17                return true;
-18            }else return false;
-19        }
-20        
-21        if(p->val != q->val) return false;
-22        return checker(p->left, q->left) && checker(p->right, q->right) ? true : false;
-23    }
-24    bool isSameTree(TreeNode* p, TreeNode* q) {
-25        return checker(p, q);
-26        
-27    }
-28};
+13    // Here it is done using recursion and value matching with TC O(n + m) & SC O(h+k); 
+14public:
+15    bool checker(TreeNode* p, TreeNode* q){
+16        if(!p || !q){
+17            if(!p && !q){
+18                return true;
+19            }else return false;
+20        }
+21        
+22        if(p->val != q->val) return false;
+23        return checker(p->left, q->left) && checker(p->right, q->right);
+24    }
+25    bool isSameTree(TreeNode* p, TreeNode* q) {
+26        return checker(p, q);
+27        
+28    }
+29};
