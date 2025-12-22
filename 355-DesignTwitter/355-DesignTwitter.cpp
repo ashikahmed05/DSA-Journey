@@ -1,4 +1,4 @@
-// Last updated: 12/22/2025, 11:40:26 AM
+// Last updated: 12/22/2025, 1:47:13 PM
 1class Twitter {
 2public:
 3    unordered_map<int, vector<pair<int, int>>> tweets;
@@ -19,50 +19,52 @@
 18        priority_queue<pair<int, int>>pq;
 19        int sz = tweets[userId].size();
 20
-21        for(int j = sz - 1; j >= max(0, sz-10) && sz != 0; j--){
-22            pq.push(tweets[userId][j]);
-23            if(pq.size() > 10) pq.pop();
-24        }
-25
-26
-27        for(int i : users[userId]){
-28            int lz = tweets[i].size();
-29
-30            for(int j = max(0, lz - 1); j >= max(0, lz - 10) && lz != 0; j--){
+21        if (sz > 0){
+22            for(int j = sz - 1; j >= max(0, sz-10); j--){
+23                pq.push(tweets[userId][j]);
+24                if(pq.size() > 10) pq.pop();
+25            }
+26        }
+27
+28
+29        for(int i : users[userId]){
+30            int lz = tweets[i].size();
 31
-32                pq.push(tweets[i][j]);
-33                if(pq.size() > 10) pq.pop();
-34            }           
-35        } 
-36        int size = pq.size();
-37        vector<int>res(size);
-38
-39        while(!pq.empty()){
-40            size--;
-41            res[size] = pq.top().second;
-42            pq.pop();
-43
-44        }
-45        return res;
-46        
-47    }
-48    
-49    void follow(int followerId, int followeeId) {
-50        users[followerId].insert(followeeId);
-51        
-52    }
-53    
-54    void unfollow(int followerId, int followeeId) {
-55        users[followerId].erase(followeeId);
-56        
-57    }
-58};
-59
-60/**
-61 * Your Twitter object will be instantiated and called as such:
-62 * Twitter* obj = new Twitter();
-63 * obj->postTweet(userId,tweetId);
-64 * vector<int> param_2 = obj->getNewsFeed(userId);
-65 * obj->follow(followerId,followeeId);
-66 * obj->unfollow(followerId,followeeId);
-67 */
+32            for(int j = max(0, lz - 1); j >= max(0, lz - 10) && lz != 0; j--){
+33
+34                pq.push(tweets[i][j]);
+35                if(pq.size() > 10) pq.pop();
+36            }           
+37        } 
+38        int size = pq.size();
+39        vector<int>res(size);
+40
+41        while(!pq.empty()){
+42            size--;
+43            res[size] = pq.top().second;
+44            pq.pop();
+45
+46        }
+47        return res;
+48        
+49    }
+50    
+51    void follow(int followerId, int followeeId) {
+52        if(followerId != followeeId) users[followerId].insert(followeeId);
+53        
+54    }
+55    
+56    void unfollow(int followerId, int followeeId) {
+57        users[followerId].erase(followeeId);
+58        
+59    }
+60};
+61
+62/**
+63 * Your Twitter object will be instantiated and called as such:
+64 * Twitter* obj = new Twitter();
+65 * obj->postTweet(userId,tweetId);
+66 * vector<int> param_2 = obj->getNewsFeed(userId);
+67 * obj->follow(followerId,followeeId);
+68 * obj->unfollow(followerId,followeeId);
+69 */
