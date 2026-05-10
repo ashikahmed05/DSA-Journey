@@ -2,8 +2,8 @@
 // Problem: 2855. Maximum Number of Jumps to Reach the Last Index
 // Difficulty: Medium
 // Topics: Array, Dynamic Programming
-// Runtime: 21 ms (Beats 49.4%)
-// Memory: 68.4 MB (Beats 84.8%)
+// Runtime: 19 ms (Beats 62.4%)
+// Memory: 68.4 MB (Beats 69.3%)
 // Submitted: May 11, 2026
 // Link: https://leetcode.com/problems/maximum-number-of-jumps-to-reach-the-last-index/
 // ═══════════════════════════════════════════════════════
